@@ -1,14 +1,20 @@
 {% assign d = site.data.npw2018 %}
 <div class="main-header">
-  <h1>Nordic Perl Workshop and Mojoconf</h1>
-  <h2>in {{d.conference.where.name}}</h2>
-  <p>{{d.conference.start | date: "%-d" }} - {{d.conference.stop | date: "%-d %B, %Y" }}</p>
+  <div class="inner">
+    <div class="text">
+      <h1>Nordic Perl Workshop and Mojoconf</h1>
+      <h2>in {{d.conference.where.name}}</h2>
+      <p>{{d.conference.start | date: "%-d" }} - {{d.conference.stop | date: "%-d %B, %Y" }}</p>
+    </div>
+  </div>
 </div>
 <nav>
-  <ul>
-    <li><a href="/npw2018">Home</a></li>
-    <li><a href="/npw2018/info">Information</a></li>
-    <li><a href="/npw2018/news">News</a></li>
-    <li><a href="/npw2018/info#contact">Contact</a></li>
-  </ul>
+  <div class="inner">
+    <ul>
+      <li><a href="/npw2018">Home</a></li>
+      <li><a href="/npw2018/info">Information</a></li>
+      <li><a href="/npw2018/news">News</a></li>
+      <li><a href="/npw2018/info#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>

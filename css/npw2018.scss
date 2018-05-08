@@ -27,33 +27,86 @@ $seperator-border: 1px solid #777;
 @import "google";
 @import "act";
 
+$primary-color: #038ace;
+$content-max-width: 50rem;
+
 body {
+  // background-image: url(/images/oliver-cole-112209.jpg);
+  // background-repeat: no-repeat;
+  // background-position: 50% 50%;
+  // background-size: cover;
+  // background-attachment: fixed;
+}
+
+h1, h2, h3 {
+  color: $primary-color;
+}
+
+h1, h2, h3, h4 {
+  margin-top: 2rem;
+  padding-bottom: .2rem;
+  border-bottom: 2px solid darken(white, 10%);
+}
+
+.wrapper {
+  max-width: none;
+
+  > .content {
+    max-width: $content-max-width;
+    margin: 0 auto;
+    padding-top: 0;
+    background-color: transparent;
+  }
+
+  .inner {
+    max-width: $content-max-width;
+    margin: 0 auto;
+
+    @include media(">small") {
+      padding: 0 2rem;
+    }
+  }
+}
+
+.main-header {
   background-image: url(/images/oliver-cole-112209.jpg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
   background-attachment: fixed;
-}
-
-.main-header {
-  padding: 2rem 1rem 4rem 1rem;
+  padding: 0 1rem;
+  position: relative;
 
   &, a, h1, h2, p {
     color: #fff;
-    font-family: 'Montserrat', sans-serif;
+    // font-family: 'Montserrat', sans-serif;
     font-weight: 800;
-    text-shadow: 0 0 3px #111;
+    text-shadow: 0 1px 4px rgba(black, .5);
+    border: 0;
+    position: relative;
+    text-align: left;
+  }
+
+  .text {
+    padding: 1rem;
+    position: relative;
+    background-image: linear-gradient(45deg, rgba(44, 184, 226, .75), rgba(90, 212, 195, .75));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 460px;
+    min-height: 700px;
   }
 
   h1 {
     font-size: 3.4rem;
     line-height: 1.4em;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1rem;
   }
 
   h2 {
     font-size: 2rem;
-    margin: 0;
+    margin: .5rem 0;
   }
 
   p {
@@ -61,13 +114,13 @@ body {
   }
 
   @include media(">small") {
-    p {
-      font-size: 1.5rem;
-      margin: 0;
-      float: right;
-      position: relative;
-      top: -1.5rem;
-    }
+    // p {
+    //   font-size: 1.5rem;
+    //   margin: 0 auto;
+    //   text-align: right;
+    //   position: relative;
+    //   top: -1.5rem;
+    // }
   }
 
   @include media("<=small") {
@@ -75,5 +128,98 @@ body {
 
     h1 { font-size: 2.5rem; }
     h2 { font-size: 1.6rem; }
+  }
+}
+
+nav {
+
+  &:not(.sub-nav) {
+    background-color: $primary-color;
+    background-image: linear-gradient(45deg, #2cb8e2, #5ad4c3);
+    margin: 0;
+    border: 0;
+    // box-shadow: 0 1px 4px rgba(black, .15);
+    position: relative;
+    z-index: 2;
+
+    a {
+      color: white;
+      font-weight: 500;
+      transition: all .2s;
+      padding: 1rem 1rem;
+      text-shadow: 0 1px 3px rgba(black, .15);
+      font-size: 1.25rem;
+
+      &:hover {
+        background-color: rgba(white, .2);
+      }
+    }
+
+    @include media("<=small") {
+      margin: -1.4rem .5rem 0;
+
+      a {
+        font-size: 1rem;
+        padding: .5rem;
+      }
+    }
+  }
+
+  &.sub-nav {
+    background-color: darken(white, 10%);
+    color: #444;
+    border: 0;
+    border-radius: 0 0 .3rem .3rem;
+    margin: 0 0 3rem;
+    position: relative;
+    z-index: 1;
+
+    li {
+
+      a {
+        color: inherit;
+        font-weight: 500;
+        transition: all .2s;
+        padding: .8rem .5rem;
+
+        &:hover {
+          background-color: lighten(#ccc, 5%);
+        }
+      }
+    }
+
+    @include media("<=small") {
+
+      li a {
+        font-size: .75rem;
+        padding: .5rem;
+      }
+    }
+  }
+}
+
+.entry {
+  margin: 0;
+
+  &.-in-list {
+    border: 0;
+  }
+}
+
+footer.site-footer {
+  border: 0;
+  background-color: $primary-color;
+  background-image: linear-gradient(45deg, #2cb8e2, #5ad4c3);
+
+  li {
+    color: white;
+
+    a {
+      color: inherit;
+
+      img {
+        border-radius: 0.2rem;
+      }
+    }
   }
 }
